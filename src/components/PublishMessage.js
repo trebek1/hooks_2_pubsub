@@ -12,7 +12,7 @@ function PublishMessage() {
     setText(event.target.value);
   };
   const publishMessage = () => {
-    if (text != "") publish(newMessage({ text, username }));
+    if (text !== "") publish(newMessage({ text, username }));
   };
   const handleKeyPress = event => {
     if (event.key === "Enter") {

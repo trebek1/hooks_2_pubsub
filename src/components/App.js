@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     pubsub.addListener({
       message: messageObject => {
-        const { channel, message } = messageObject;
+        const { message } = messageObject;
 
         dispatch(message);
       }
