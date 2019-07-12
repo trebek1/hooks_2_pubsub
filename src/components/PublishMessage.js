@@ -4,6 +4,7 @@ import { newMessage } from "../state/actions";
 
 function PublishMessage() {
   const {
+    state: { username },
     pubsub: { publish }
   } = useAppContext();
   const [text, setText] = useState("");
@@ -11,7 +12,7 @@ function PublishMessage() {
     setText(event.target.value);
   };
   const publishMessage = () => {
-    if (text != "") publish(newMessage(text));
+    if (text != "") publish(newMessage({ text, username }));
   };
   const handleKeyPress = event => {
     if (event.key === "Enter") {
