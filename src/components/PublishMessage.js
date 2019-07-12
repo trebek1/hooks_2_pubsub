@@ -3,13 +3,15 @@ import { useAppContext } from "./hooks";
 import { newMessage } from "../state/actions";
 
 function PublishMessage() {
-  const { dispatch } = useAppContext();
+  const {
+    pubsub: { publish }
+  } = useAppContext();
   const [text, setText] = useState("");
   const updateText = event => {
     setText(event.target.value);
   };
   const publishMessage = () => {
-    if (text != "") dispatch(newMessage(text));
+    if (text != "") publish(newMessage(text));
   };
   const handleKeyPress = event => {
     if (event.key === "Enter") {
